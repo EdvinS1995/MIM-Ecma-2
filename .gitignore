@@ -5,3 +5,7 @@ obj/
 
 # Vendor SDK DLL — not redistributable, copy locally per lib/README.md
 lib/*.dll
+
+# Classic packages.config restore output (SuccessFactorsRepo) — restored at build
+# time by NuGet/Visual Studio, not committed.
+/packages/
