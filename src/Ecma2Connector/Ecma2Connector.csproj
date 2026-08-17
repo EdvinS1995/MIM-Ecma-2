@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>Ecma2Connector</AssemblyName>
+    <RootNamespace>Ecma2Connector</RootNamespace>
+    <!-- MIM Synchronization Service loads this assembly in-process; it must stay a
+         class library targeting the .NET Framework version the Sync Service host supports. -->
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Not implicitly referenced by the SDK for net472 -->
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Ships with the MIM Synchronization Service install (typically under
+         "...\Synchronization Service\Bin\Assemblies\Microsoft.MetadirectoryServicesEx.dll").
+         Copy it into lib\ before building — see lib\README.md. -->
+    <Reference Include="Microsoft.MetadirectoryServicesEx">
+      <HintPath>..\..\lib\Microsoft.MetadirectoryServicesEx.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
