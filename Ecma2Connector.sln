@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureRepo", "src\AzureRepo\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoomiRepo", "src\BoomiRepo\BoomiRepo.csproj", "{9CBDB799-4CE1-42E0-86B5-3B7BC6E3CCDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuinyxRepo", "src\QuinyxRepo\QuinyxRepo.csproj", "{32D76C17-3CED-457D-AF86-F43AC5F800D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{9CBDB799-4CE1-42E0-86B5-3B7BC6E3CCDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CBDB799-4CE1-42E0-86B5-3B7BC6E3CCDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CBDB799-4CE1-42E0-86B5-3B7BC6E3CCDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32D76C17-3CED-457D-AF86-F43AC5F800D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32D76C17-3CED-457D-AF86-F43AC5F800D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32D76C17-3CED-457D-AF86-F43AC5F800D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32D76C17-3CED-457D-AF86-F43AC5F800D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
