@@ -1,0 +1,110 @@
+﻿            //try
+            //{
+
+            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+            request.Method = "PATCH";
+            request.ContentType = "application/json";
+            //request.ContentLength = DATA.Length;
+            request.UseDefaultCredentials = true;
+            //request.Headers.Add("X-XSRF-Token", Token());
+            request.PreAuthenticate = true;
+
+
+
+            using (Stream webStream = request.GetRequestStream())
+            using (StreamWriter requestWriter = new StreamWriter(webStream, System.Text.Encoding.UTF8))
+            {
+                requestWriter.Write(DATA);
+            }
+
+            HttpWebResponse webResponse = (HttpWebResponse)request.GetResponse();
+
+            response = webResponse.StatusDescription;
+            //}
+
+            //catch (Exception e1)
+            //{
+            //    response = "";
+            //}
+
+            return response;
+
+
+
+
+			            //try
+            //{
+
+
+            //HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+            //request.Method = "POST";
+            //request.ContentType = "application/json";
+            ////request.ContentLength = DATA.Length;
+            //request.UseDefaultCredentials = true;
+            ////request.Headers.Add("X-XSRF-Token", Token());
+            //request.PreAuthenticate = true;
+
+            //using (Stream webStream = request.GetRequestStream())
+            //using (StreamWriter requestWriter = new StreamWriter(webStream, System.Text.Encoding.UTF8))
+            //{
+            //    requestWriter.Write(DATA);
+            //}
+
+            //HttpWebResponse webResponse = (HttpWebResponse)request.GetResponse();
+
+            //response = webResponse.StatusDescription;
+            //}
+
+            //catch (Exception e1)
+            //{
+            //    response = "";
+            //}
+
+            //return response;
+
+
+
+
+
+
+
+        private async Task<string> SendPostRequestAsync(string url, string data, string doMethod)
+        {
+            var code = "Failed";
+
+            //try
+            //{
+            HttpClientHandler hand = new HttpClientHandler { UseDefaultCredentials = true };
+
+            using (HttpClient client = new HttpClient(hand))
+            {
+                var requestContent = new StringContent(data);
+                requestContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                requestContent.Headers.Add("content_type", "application/json");
+                var method = new HttpMethod(doMethod);
+                var request = new HttpRequestMessage(method, url)
+                {
+                    Content = requestContent
+                };
+
+
+                var response = await client.SendAsync(request);
+                var responseString = await response.Content.ReadAsStringAsync();
+
+                var joc = JsonConvert.DeserializeObject<HResponseRoot>(responseString);
+
+                code = joc.response.code;
+            }
+
+
+
+
+            //}
+            //catch (Exception ex)
+            //{
+            //	code = ex.Message;
+            //}
+
+            return code;
+        }
